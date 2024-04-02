@@ -1,5 +1,5 @@
-import 'dart:ffi';
 
+import 'package:bmi_cal/MyHome.dart';
 import 'package:bmi_cal/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -20,9 +20,9 @@ with SingleTickerProviderStateMixin
     super.initState();
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
         Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (_)=> const HomeScreen()));
+          MaterialPageRoute(builder: (_)=>  Home()));
     });
   }
   @override
@@ -37,13 +37,13 @@ with SingleTickerProviderStateMixin
       body:
        Container(
         width: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Colors.blue,Colors.purple],
             end: Alignment.bottomLeft,
             begin: Alignment.topRight)
         ),
-        child: Column(
+        child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
           Icon(Icons.edit,size: 150,color: Colors.white,),
