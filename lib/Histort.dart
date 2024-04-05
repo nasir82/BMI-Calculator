@@ -1,14 +1,23 @@
+import 'package:bmi_cal/list_item.dart';
 import 'package:flutter/material.dart';
+
 class History extends StatelessWidget {
   const History({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       body:Column(children: [
 
-        Text("this is history screen"),
-          SizedBox(height: 20,)
+       Expanded(
+         child: ListView.builder(
+          itemCount: 10,
+          
+          itemBuilder: (context,index){
+       
+            return const MyListItem(current: "10", diff: "5");
+          }),
+       )
       ],)
      
     );

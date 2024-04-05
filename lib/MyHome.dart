@@ -1,3 +1,4 @@
+import 'package:bmi_cal/Database/collections.dart';
 import 'package:bmi_cal/Histort.dart';
 import 'package:bmi_cal/Profile.dart';
 import 'package:bmi_cal/home_screen.dart';
@@ -11,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  DataCollection dt = DataCollection();
   int myIndex = 0;
   List screenList = [
      HomeScreen(),
