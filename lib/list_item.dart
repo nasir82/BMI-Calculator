@@ -4,8 +4,9 @@ class MyListItem extends StatelessWidget {
 
   final String current;
   final String diff;
+  final String date;
 
-  const MyListItem({super.key,required this.current,required this.diff});
+  const MyListItem({super.key,required this.current,required this.diff,required this.date});
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +28,8 @@ class MyListItem extends StatelessWidget {
               Row(
                 
                 children: [
-                  Text("Curren BMI :"),
-      
+                  Text("Current BMI :"),
+                  SizedBox(width: 50,),
                   Text(current,style: const TextStyle(
                     fontSize: 24
                   ),),
@@ -37,12 +38,19 @@ class MyListItem extends StatelessWidget {
               Row(
                 children: [
                   Text("Dif BMI :"),
-      
+                  SizedBox(width: 50,),
                   Text(diff,style: const TextStyle(
                     fontSize: 24
                   ),),
                 ],
               ), 
+
+              Row(
+                children: [
+                  Text("Date: "),
+                  Text("Today")
+                ],
+              )
       
         ]),
       ),

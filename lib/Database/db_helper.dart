@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bmi_cal/Database/model.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
@@ -11,6 +12,8 @@ class DatabaseHelper{
   static const dbTable = "dbtable";
   static const columId = "id";
   static const columName = "name";
+  static const columTime = "time";
+  static const columDiff = "diff";
   
   static final DatabaseHelper instance = DatabaseHelper();
 
@@ -37,7 +40,9 @@ class DatabaseHelper{
         CREATE TABLE $dbTable (
 
           $columId INTEGER PRIMARY KEY,
-          $columName TEXT NOT NULL
+          $columName TEXT NOT NULL,
+          $columTime TEXT,
+          $columDiff TEXT
         )
 
         '''
@@ -54,11 +59,12 @@ class DatabaseHelper{
 
    }
 
-   Future<List<Map<String,dynamic> > >queryDatabase() async{
+   Future<List<ListModel > >queryDatabase() async{
 
     Database? db = await instance.database;
-
-    return await db!.query(dbTable);
+    List<Map<String, dynamic>> results = await db!.query(dbTable);
+    return results.map((map) => ListModel.fromMap(map)).toList();
+    
 
    }
 
