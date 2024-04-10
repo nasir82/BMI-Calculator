@@ -1,4 +1,3 @@
-import 'package:bmi_cal/Database/db_helper.dart';
 import 'package:bmi_cal/utils_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -162,6 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
               ),
             ),
+            SizedBox(height: 5,),
             Row(
               children: [
                 Padding(
@@ -183,7 +183,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const Icon(
               Icons.health_and_safety,
-              size: 200,
+              size: 240,
               color: Colors.cyan,
             ),
             const SizedBox(
@@ -195,27 +195,161 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 5,
             ),
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text("Status"),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text("BMI Value"),
+                ),
+              ],
+            ),
+            SizedBox(height: 5,),
+              const Divider(
+              thickness: 0.5,
+            ),
+            SizedBox(height: 5,),
             Container(
-                height: 150,
+                height: 200,
                 child: const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("Very Severly Underweight"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("<=15.9"),
+                        ),
+                      ],
+                    ),
                     SizedBox(
                       height: 5,
                     ),
-                    Text("Text one "),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("Severly Underweight"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("16.0 - 16.9"),
+                        ),
+                      ],
+                    ),
                     SizedBox(
                       height: 5,
                     ),
-                    Text("Text two "),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("Underweight"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("17.0 - 18.4"),
+                        ),
+                      ],
+                    ),
                     SizedBox(
                       height: 5,
                     ),
-                    Text("Text Three "),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("Normal weight"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("18.5 - 24.9"),
+                        ),
+                      ],
+                    ),
                     SizedBox(
                       height: 5,
                     ),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("Over weight"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("25.0 - 29.9"),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("Obese Class I"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("30.0 - 34.9"),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("Obese Class II"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("35.0 - 39.9"),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text("Obese Class III"),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(">=40"),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    
                   ],
-                ))
+                )
+                )
           ]),
         ),
       ),

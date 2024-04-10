@@ -1,5 +1,5 @@
 import 'package:bmi_cal/Database/db_helper.dart';
-import 'package:bmi_cal/Database/model.dart';
+import 'package:bmi_cal/Database/db_plans.dart';
 import 'package:intl/intl.dart';
 
 void insertIntoDatabase(String bmi) async {
@@ -17,10 +17,11 @@ void insertIntoDatabase(String bmi) async {
       }else{
         dif = 0.0;
       }
+     String theDif =  dif.toStringAsPrecision(4);
       DateTime tim = DateTime.now();
       String formattedDate = DateFormat('yyyy-MM-dd').format(tim);
 
-      await DatabaseHelper.instance.insertRecord({DatabaseHelper.columName: bmi, DatabaseHelper.columDiff: dif.toString(),DatabaseHelper.columTime:formattedDate});
+      await DatabaseHelper.instance.insertRecord({DatabaseHelper.columName: bmi, DatabaseHelper.columDiff: theDif,DatabaseHelper.columTime:formattedDate});
      
       
       
@@ -35,4 +36,10 @@ void insertIntoDatabase(String bmi) async {
   
 }
 
+void insertPlan(String title,String time,String details) async{
 
+await PlansDatabase.instance.insertRecord({PlansDatabase.columTitle: title,PlansDatabase.columTime:time,PlansDatabase.columDetails: details});
+
+print("inserted");
+
+}

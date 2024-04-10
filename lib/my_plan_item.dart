@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class MyListItem extends StatelessWidget {
-  final String current;
-  final String diff;
-  final String date;
+class MyPlanItem extends StatelessWidget {
+  final String title;
+  final String time;
+  final String details;
 
-  const MyListItem(
+  const MyPlanItem(
       {super.key,
-      required this.current,
-      required this.diff,
-      required this.date});
+      required this.title,
+      required this.time,
+      required this.details});
 
   @override
   Widget build(BuildContext context) {
@@ -22,56 +22,23 @@ class MyListItem extends StatelessWidget {
         color: Colors.grey.shade200,
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 5),
+        padding: const EdgeInsets.only(top: 5),
         child: Column(children: [
           Row(
             children: [
              const Text(
-                "Current BMI:",
+                "Plan motive:",
                 style: const TextStyle(fontSize: 20),
               ),
              const  SizedBox(
                 width: 10,
               ),
               Text(
-                current,
+                title,
                 style: const TextStyle(fontSize: 20),
               ),
-            ],
-          ),
-         const SizedBox(
-            height: 3,
-          ),
-          Row(
-            children: [
-             const Text(
-                "Diff with prev:",
-                style: const TextStyle(fontSize: 20),
-              ),
-            const  SizedBox(
-                width: 5,
-              ),
-              Text(
-                diff,
-                style: const TextStyle(fontSize: 20),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-            const  Text(
-                "Measure Date: ",
-                style: const TextStyle(fontSize: 20),
-              ),
-            const  SizedBox(
-                width: 5,
-              ),
-              Expanded(
-                  child: Text(
-                date,
-                style: const TextStyle(fontSize: 20),
-              )),
-              GestureDetector(
+              Expanded(child: SizedBox()),
+               GestureDetector(
                 onTap: () {},
                 child: const CircleAvatar(
                   backgroundColor: Colors.red,
@@ -80,6 +47,43 @@ class MyListItem extends StatelessWidget {
                   ),
                 ),
               )
+            ],
+          ),
+         const SizedBox(
+            height: 3,
+          ),
+          Row(
+            children: [
+             const Text(
+                "Workout time:",
+                style: const TextStyle(fontSize: 20),
+              ),
+            const  SizedBox(
+                width: 5,
+              ),
+              Text(
+                time,
+                style: const TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
+          SizedBox(height: 5,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+            const  Text(
+                "Work details: ",
+                style: const TextStyle(fontSize: 20),
+              ),
+            const  SizedBox(
+                width: 5,
+              ),
+              Expanded(
+                  child: Text(
+                details,
+                style: const TextStyle(fontSize: 20),
+              )),
+             
             ],
           )
         ]),

@@ -1,5 +1,5 @@
 
-import 'package:bmi_cal/MyHome.dart';
+import 'package:bmi_cal/my_home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

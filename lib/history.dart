@@ -60,23 +60,36 @@ class _HistoryState extends State<History>  {
           }),
        ),
 
-       Container(
-        padding:const EdgeInsets.symmetric(vertical: 5,horizontal: 20),
-        margin: const EdgeInsets.only(bottom: 15),
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: Colors.black26,
-            width: 2,
-            style: BorderStyle.solid
+       GestureDetector(
+        onTap: (){
+
+
+        },
+        
+         child: Container(
+          padding:const EdgeInsets.symmetric(vertical: 5,horizontal: 20),
+          margin: const EdgeInsets.only(bottom: 15),
+          decoration: BoxDecoration(
+            color: Color.fromARGB(255, 64, 137, 66),
+            border: Border.all(
+              color: Colors.black26,
+              
+              width: 2,
+              style: BorderStyle.solid
+            ),
+            borderRadius: BorderRadius.circular(12)
           ),
-          borderRadius: BorderRadius.circular(12)
-        ),
-       
-        child:const Padding(
-          padding:  EdgeInsets.all(8.0),
-          child: Text("See Progress"),
-        )
-        ),
+         
+          child:const Padding(
+          
+            padding:  EdgeInsets.all(8.0),
+            child: Text("See Progress",style: TextStyle(
+              fontSize: 20,
+             
+            ),),
+          )
+          ),
+       ),
       ],)
      
     );

@@ -1,15 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MyListItem extends StatelessWidget {
-  final String current;
-  final String diff;
-  final String date;
-
-  const MyListItem(
-      {super.key,
-      required this.current,
-      required this.diff,
-      required this.date});
+class MyplanList extends StatelessWidget {
+ const MyplanList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,17 +16,19 @@ class MyListItem extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 5),
         child: Column(children: [
-          Row(
+         const Row(
             children: [
-             const Text(
-                "Current BMI:",
-                style: const TextStyle(fontSize: 20),
+              Text(
+                "Motive :",
+                maxLines: 3,
+                style:  TextStyle(fontSize: 20),
               ),
-             const  SizedBox(
+               SizedBox(
                 width: 10,
               ),
               Text(
-                current,
+                "your motives bal",
+                maxLines: 3,
                 style: const TextStyle(fontSize: 20),
               ),
             ],
@@ -42,17 +36,17 @@ class MyListItem extends StatelessWidget {
          const SizedBox(
             height: 3,
           ),
-          Row(
+        const  Row(
             children: [
-             const Text(
-                "Diff with prev:",
+              Text(
+                "Work time: ",
                 style: const TextStyle(fontSize: 20),
               ),
-            const  SizedBox(
+              SizedBox(
                 width: 5,
               ),
               Text(
-                diff,
+                "work time",
                 style: const TextStyle(fontSize: 20),
               ),
             ],
@@ -60,15 +54,15 @@ class MyListItem extends StatelessWidget {
           Row(
             children: [
             const  Text(
-                "Measure Date: ",
+                "Details ",
                 style: const TextStyle(fontSize: 20),
               ),
             const  SizedBox(
                 width: 5,
               ),
-              Expanded(
+           const   Expanded(
                   child: Text(
-                date,
+                "date,",
                 style: const TextStyle(fontSize: 20),
               )),
               GestureDetector(
