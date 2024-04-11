@@ -1,3 +1,4 @@
+import 'package:bmi_cal/DrawingElement/drawing.dart';
 import 'package:bmi_cal/utils_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -105,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                             child: Text("Save"),
                           ),
-                          SizedBox(
+                       const   SizedBox(
                             width: 20,
                           ),
                           OutlinedButton(
@@ -161,14 +162,16 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
               ),
             ),
-            SizedBox(height: 5,),
+          const  SizedBox(
+              height: 5,
+            ),
             Row(
               children: [
                 Padding(
                   padding: EdgeInsets.only(left: 20, right: 20),
                   child: isChange
                       ? Text("Your BMI $bmiText")
-                      : Text("Your BMI $bmi"),
+                      : Text("Your BMI $bmiText"),
                 )
               ],
             ),
@@ -181,10 +184,33 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(
               height: 5,
             ),
-            const Icon(
-              Icons.health_and_safety,
-              size: 240,
-              color: Colors.cyan,
+            Container(
+              height: 240,
+              child: const Column(
+                children: [
+                  Flexible(child: Drawing()),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Your status:"),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("very severly underweighted"),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Balanced weight:"),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text("fff"),
+                    ],
+                  )
+                ],
+              ),
             ),
             const SizedBox(
               height: 5,
@@ -208,11 +234,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
-            SizedBox(height: 5,),
-              const Divider(
+            SizedBox(
+              height: 5,
+            ),
+            const Divider(
               thickness: 0.5,
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             Container(
                 height: 200,
                 child: const Column(
@@ -282,7 +312,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 5,
                     ),
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
@@ -298,7 +328,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 5,
                     ),
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
@@ -314,7 +344,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 5,
                     ),
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
@@ -330,7 +360,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 5,
                     ),
-                     Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Padding(
@@ -346,10 +376,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     SizedBox(
                       height: 5,
                     ),
-                    
                   ],
-                )
-                )
+                ))
           ]),
         ),
       ),

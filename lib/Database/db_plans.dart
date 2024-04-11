@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:bmi_cal/Database/model.dart';
 import 'package:bmi_cal/Database/plan_model.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';

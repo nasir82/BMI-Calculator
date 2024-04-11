@@ -1,6 +1,5 @@
 import 'package:bmi_cal/Database/db_plans.dart';
 import 'package:bmi_cal/Database/plan_model.dart';
-import 'package:bmi_cal/list_item.dart';
 import 'package:bmi_cal/my_plan_item.dart';
 import 'package:flutter/material.dart';
 
