@@ -38,15 +38,15 @@ with SingleTickerProviderStateMixin
         width: double.infinity,
         decoration: const BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue,Colors.purple],
+            colors: [Colors.grey,Colors.lightGreen],
             end: Alignment.bottomLeft,
             begin: Alignment.topRight)
         ),
         child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-          Icon(Icons.edit,size: 150,color: Colors.white,),
-          Text("Measer your BMI")
+          Icon(Icons.health_and_safety,size: 150,color: Colors.white,),
+          Text("BMI Indicates Your Physical Fitness")
           
         ]),
         ),

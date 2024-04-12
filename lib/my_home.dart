@@ -24,8 +24,12 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        title: Text(titles[myIndex]),
+        elevation: 1,
+        title: Text(titles[myIndex],style: TextStyle(
+          color: Colors.black54
+        ),),
         centerTitle: true,
+        backgroundColor: Colors.grey.shade200,
       ),
       body: screenList[myIndex],
 

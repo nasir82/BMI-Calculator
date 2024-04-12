@@ -14,9 +14,23 @@ class _HomeScreenState extends State<HomeScreen> {
   String txt = "Submit1";
 
   double? bmi;
+  double balance = 0.0;
   String bmiText = "";
   bool isChange = false;
   bool isSave = false;
+  int statusIndex = 0;
+  bool isStatusChange = false;
+  String statusText = "Normal Weight";
+  List<String> statuslist = [
+    "Very Severly Underweight",
+    "Severly Underweight",
+    "UnderWwight",
+    "Normal Weight",
+    "Over Weight",
+    "Obese Class I",
+    "Obese Class II",
+    "Obese Class III"
+  ];
   final textController = TextEditingController();
   final ageCon = TextEditingController();
   final fett = TextEditingController();
@@ -28,63 +42,70 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      controller: textController,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                      ],
-                      decoration: const InputDecoration(
-                        labelText: "Enter weight",
-                        border: OutlineInputBorder(),
+            Padding(
+              padding: const EdgeInsets.only(top:4.0),
+              child: Container(
+                
+                height: 56,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          controller: textController,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                          ],
+                          decoration: const InputDecoration(
+                            labelText: "Enter weight",
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: TextField(
-                      controller: fett,
-                      cursorWidth: 20,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                      ],
-                      decoration: const InputDecoration(
-                        labelText: "Height ft",
-                        border: OutlineInputBorder(),
+                    Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: TextField(
+                          controller: fett,
+                          cursorWidth: 2,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                          ],
+                          decoration: const InputDecoration(
+                            labelText: "Height ft",
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: EdgeInsets.all(20.0),
-                    child: TextField(
-                      controller: inch,
-                      cursorWidth: 20,
-                      keyboardType: TextInputType.number,
-                      inputFormatters: [
-                        FilteringTextInputFormatter.digitsOnly,
-                        FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                      ],
-                      decoration: const InputDecoration(
-                        labelText: "Height inc",
-                        border: OutlineInputBorder(),
+                    Expanded(
+                      child: Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: TextField(
+                          controller: inch,
+                          cursorWidth: 2,
+                          keyboardType: TextInputType.number,
+                          inputFormatters: [
+                            FilteringTextInputFormatter.digitsOnly,
+                            FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                          ],
+                          decoration: const InputDecoration(
+                            labelText: "Height inc",
+                            border: OutlineInputBorder(),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
-              ],
+              ),
             ),
             Container(
               width: double.infinity,
@@ -106,7 +127,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             },
                             child: Text("Save"),
                           ),
-                       const   SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                           OutlinedButton(
@@ -143,7 +164,61 @@ class _HomeScreenState extends State<HomeScreen> {
                                   valu2 = valu2 / 100;
                                   valu2 = valu2 * valu2;
                                   bmi = int.parse(textController.text) / valu2;
-
+                                  if (bmi! <= 15.9) {
+                                    setState(() {
+                                      statusText = statuslist[0];
+                                      balance = 18.5 * valu2 - bmi! * valu2;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  } else if (bmi! >= 16.0 && bmi! <= 16.9) {
+                                    setState(() {
+                                      statusText = statuslist[1];
+                                      balance = 18.5 * valu2 - bmi! * valu2;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  } else if (bmi! >= 17.0 && bmi! <= 18.4) {
+                                    setState(() {
+                                      statusText = statuslist[2];
+                                      balance = 18.5 * valu2 - bmi! * valu2;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  } else if (bmi! >= 18.5 && bmi! <= 24.9) {
+                                    setState(() {
+                                      statusText = statuslist[3];
+                                      balance = 0.0;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  } else if (bmi! >= 25.0 && bmi! <= 29.9) {
+                                    setState(() {
+                                      statusText = statuslist[4];
+                                      balance = 24.9 * valu2 - bmi! * valu2;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  } else if (bmi! >= 30.0 && bmi! <= 34.9) {
+                                    setState(() {
+                                      statusText = statuslist[5];
+                                      balance = 24.9 * valu2 - bmi! * valu2;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  } else if (bmi! >= 35.0 && bmi! <= 39.9) {
+                                    setState(() {
+                                      statusText = statuslist[6];
+                                      balance = 24.9 * valu2 - bmi! * valu2;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  } else if (bmi! >= 40.0) {
+                                    setState(() {
+                                      statusText = statuslist[7];
+                                      balance = 24.9 * valu2 - bmi! * valu2;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  } else {
+                                    setState(() {
+                                      statusText = statuslist[2];
+                                      balance = 18.5 * valu2 - bmi! * valu2;
+                                      isStatusChange = !isStatusChange;
+                                    });
+                                  }
                                   bmiText = bmi!.toStringAsPrecision(4);
                                   setState(() {
                                     isChange = !isChange;
@@ -162,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
               ),
             ),
-          const  SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Row(
@@ -179,34 +254,68 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 5,
             ),
             const Divider(
-              thickness: 0.5,
+              thickness: 1,
             ),
             const SizedBox(
               height: 5,
             ),
             Container(
-              height: 240,
-              child: const Column(
+              height: 236,
+              child: Column(
                 children: [
                   Flexible(child: Drawing()),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Your status:"),
-                      SizedBox(
+                      const Text(
+                        "Your status:",
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text("very severly underweighted"),
+                      isStatusChange
+                          ? Text(
+                              statusText,
+                              style: const TextStyle(
+                                fontSize: 18,
+                              ),
+                            )
+                          : Text(
+                              statusText,
+                              style: const TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
                     ],
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Balanced weight:"),
-                      SizedBox(
+                      const Text(
+                        "Balanced weight(-/+ kg):",
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text("fff"),
+                      isStatusChange
+                          ? Text(
+                              balance.toStringAsPrecision(4),
+                              style: const TextStyle(
+                                fontSize: 18,
+                              ),
+                            )
+                          : Text(
+                              balance.toStringAsPrecision(4),
+                              style: const TextStyle(
+                                fontSize: 18,
+                              ),
+                            ),
                     ],
                   )
                 ],
@@ -226,25 +335,37 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text("Status"),
+                  child: Text(
+                    "Status",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                    ),
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
-                  child: Text("BMI Value"),
+                  child: Text(
+                    "BMI Value",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.black87,
+                    ),
+                  ),
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             const Divider(
               thickness: 0.5,
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
             Container(
-                height: 200,
+                height: 230,
                 child: const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -253,27 +374,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("Very Severly Underweight"),
+                          child: Text(
+                            "Very Severly Underweight",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("<=15.9"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("Severly Underweight"),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("16.0 - 16.9"),
+                          child: Text(
+                            "<=15.9",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -285,27 +402,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("Underweight"),
+                          child: Text(
+                            "Severly Underweight",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("17.0 - 18.4"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("Normal weight"),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("18.5 - 24.9"),
+                          child: Text(
+                            "16.0 - 16.9",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -317,27 +430,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("Over weight"),
+                          child: Text(
+                            "Underweight",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("25.0 - 29.9"),
-                        ),
-                      ],
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("Obese Class I"),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("30.0 - 34.9"),
+                          child: Text(
+                            "17.0 - 18.4",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -349,11 +458,23 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("Obese Class II"),
+                          child: Text(
+                            "Normal weight",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("35.0 - 39.9"),
+                          child: Text(
+                            "18.5 - 24.9",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                       ],
                     ),
@@ -365,11 +486,107 @@ class _HomeScreenState extends State<HomeScreen> {
                       children: [
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text("Obese Class III"),
+                          child: Text(
+                            "Over weight",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                         Padding(
                           padding: EdgeInsets.symmetric(horizontal: 20),
-                          child: Text(">=40"),
+                          child: Text(
+                            "25.0 - 29.9",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            "Obese Class I",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            "30.0 - 34.9",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            "Obese Class II",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            "35.0 - 39.9",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            "Obese Class III",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 20),
+                          child: Text(
+                            ">=40",
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.black87,
+                            ),
+                          ),
                         ),
                       ],
                     ),

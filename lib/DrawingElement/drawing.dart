@@ -54,21 +54,21 @@ class MyPainter extends CustomPainter {
 
     canvas.drawArc(
         Rect.fromCircle(
-            center: Offset(size.width * 0.5, size.height * 0.8), radius: 150),
+            center: Offset(size.width * 0.5, size.height * 0.9), radius: 150),
         math.pi,
         math.pi / 3,
         false,
         paint);
     canvas.drawArc(
         Rect.fromCircle(
-            center: Offset(size.width * 0.5, size.height * 0.8), radius: 150),
+            center: Offset(size.width * 0.5, size.height * 0.9), radius: 150),
         math.pi + math.pi / 3,
         math.pi / 3,
         false,
         paint2);
     canvas.drawArc(
         Rect.fromCircle(
-            center: Offset(size.width * 0.5, size.height * 0.8), radius: 150),
+            center: Offset(size.width * 0.5, size.height * 0.9), radius: 150),
         math.pi + 2 * math.pi / 3,
         math.pi / 3,
         false,
@@ -83,17 +83,17 @@ class MyPainter extends CustomPainter {
 
     // Define text to be drawn
     final text1 = TextSpan(
-      text: '<18.5',
+      text: '<=18.4',
       style: textStyle,
     );
 
     final text2 = TextSpan(
-      text: '18.5 - 24.5',
+      text: '18.5 - 24.9',
       style: textStyle,
     );
 
     final text3 = TextSpan(
-      text: '40>=',
+      text: '>=40',
       style: textStyle,
     );
 
@@ -120,11 +120,11 @@ class MyPainter extends CustomPainter {
 
     // Position text within the arc
     textPainter2.paint(
-        canvas, Offset(size.width * 0.4 - 20, size.height * 0.8 - 120));
+        canvas, Offset(size.width * 0.4 - 10, size.height * 0.8 - 120));
     textPainter3.paint(
-        canvas, Offset(size.width * 0.4 + 110, size.height * 0.8 - 40));
+        canvas, Offset(size.width * 0.4 + 120, size.height * 0.8 - 40));
     textPainter1.paint(
-        canvas, Offset(size.width * 0.4 - 120, size.height * 0.8 - 40));
+        canvas, Offset(size.width * 0.5 - 130, size.height * 0.8 - 40));
   }
 
   @override
