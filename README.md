@@ -7,7 +7,7 @@
 * Visualize workout progress
 * Info update through website
 
-<img src="https://github.com/nasir82/BMI-Calculator/assets/106889332/3d2aa6ea-2e3c-4743-9c55-7523a52d5499" width="200"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src = "https://github.com/nasir82/BMI-Calculator/assets/106889332/4320fc79-35a8-49d7-b39d-fd32667093fa" width="200">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+<img src="https://github.com/nasir82/BMI-Calculator/assets/106889332/3d2aa6ea-2e3c-4743-9c55-7523a52d5499" width="200"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src = "https://github.com/nasir82/BMI-Calculator/assets/106889332/12810f5a-3368-4a09-a0a3-2b6286157409" width="200">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 
 <img src="https://github.com/nasir82/BMI-Calculator/assets/106889332/77b2756d-b1b5-4db4-b7df-cbf04764384b" width="205"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<img src = "https://github.com/nasir82/BMI-Calculator/assets/106889332/2c1c8cca-e2c9-409c-a815-70cf4a3f8661" width="200">
 
